@@ -1,6 +1,6 @@
 programa {
     inclua biblioteca Util --> u
-  inclua biblioteca Tipos --> tp
+    inclua biblioteca Tipos --> tp
     
     // Variável global para pausas de leitura
     cadeia enter
@@ -13,6 +13,7 @@ programa {
     inteiro opcaoAto5
     inteiro pontuacao
 
+    // --- CORREÇÃO: Descomentando a introdução e primeiros atos ---
     u.aguarde(2000)
     carregando1()
     u.aguarde(500)
@@ -46,6 +47,8 @@ programa {
     contexto()
     opcaoAto1 = ato1()
     opcaoAto2 = ato2()
+    // ----------------------------------------------------------------
+    
     opcaoAto3 = ato3()
 
     // Ato 4: depende da escolha do ato 3
@@ -59,8 +62,13 @@ programa {
     opcaoAto5 = ato5()
 
     // Calcula pontuação acumulada: 
-    // Escolha 1 em cada ato = caminho da empatia/cautela  (+1)
-    // Escolha 2 em cada ato = caminho da ação/força       (+0)
+    // Pontos são dados para escolhas de "Empatia/Cautela/Sabedoria"
+    // Ato 1: Opção 1 (Silêncio) = +1
+    // Ato 2: Opção 2 (Observar) = +1
+    // Ato 3: Opção 1 (Floresta) = +1
+    // Ato 4: Opção 2 (Sabedoria/Fendas) = +1
+    // Ato 5: Opção 1 (Serenidade) = +1
+    
     pontuacao = 0
     se (opcaoAto1 == 1) { pontuacao = pontuacao + 1 }
     se (opcaoAto2 == 2) { pontuacao = pontuacao + 1 }
@@ -525,7 +533,7 @@ programa {
     } senao {
      escreva("Com a ajuda da Ira e Astúcia, você cria uma sobrecarga de energia que força a separação das entidades com uma explosão\n\n")
      escreva("Graças à sua escolha de estratégia, você mantem sua energia vital e ainda pode dar suporte às caudas") 
-     escreva("as parece que a explosão de energia afetou significativamente o Feudo de Kai...\n")
+     escreva("\nParece que a explosão de energia afetou significativamente o Feudo de Kai...\n")
      u.aguarde(2000)
      continuar()
      limpa()
@@ -547,7 +555,7 @@ funcao epilogo(inteiro escolhaAnterior, inteiro pontuacao)
         escreva("\nVocê está de joelhos, sua vitalidade quase extinta após purificar a Ganância.")
         u.aguarde(300)
         escreva("\nAs nove caudas flutuam ao seu redor, brilhando com uma pureza que dói aos olhos.")
-        u.guarde(900)
+        u.aguarde(900)
         continuar()
         limpa()
     } senao {
@@ -633,11 +641,16 @@ funcao epilogo(inteiro escolhaAnterior, inteiro pontuacao)
       escreva("\n\nE nas noites mais silenciosas, se alguém parar e realmente olhar para a sombra ao seu lado...")
       escreva("\nPode ver, por um instante, a silhueta de um jovem de vinte anos, com nove caudas de escuridão ondulando atrás de si.")
       u.aguarde(1000)
+      continuar()
+      limpa()
+      
       escreva("\n\nEle não fala. Não sorri. Mas está ali.")
       escreva("\nSempre ali.\n\n")
       u.aguarde(2000)
       guardiao()
       escreva("\n\n>> O Guardião das Sombras <<\n")
+      continuar()
+      limpa()
 
     } senao se (escolhaAnterior == 1) {
 
@@ -656,7 +669,7 @@ funcao epilogo(inteiro escolhaAnterior, inteiro pontuacao)
       u.aguarde(900)
       escreva("\n\nVocê não hesita.")
       u.aguarde(1000)
-      escreva("\n\nAs nove caudas se lançam sobre você. Luz, dor, calor, frio — tudo ao mesmo tempo, como se o mundo inteiro passasse pelo seu peito de uma só vez.")
+      escreva("\n\nAs nove caudas se lançam sobre você. Luz, dor, calor, frio — tudo ao mesmo tempo, como se o mundo inteiro passasse pelo seu peche de uma só vez.")
       escreva("\nVocê grita. As veias do seu corpo brilham em prata. A terra treme.")
       u.aguarde(2000)
       escreva("\n\nE então — silêncio.")
@@ -701,16 +714,21 @@ funcao epilogo(inteiro escolhaAnterior, inteiro pontuacao)
       u.aguarde(2000)
       escreva("\n\nOs moradores de Kai contam histórias sobre a Guardiã de Prata e o Sábio que nunca envelhece.")
       escreva("\nDizem que ele é mais poderoso que qualquer espírito, porque seu poder não é mágica — é compreensão.")
-      escreva("\nDizem que ela é a mais sábia das deusas, porque escolheu ouvir um mortal em vez de se impor.")
+      escreva("\nDizem que ela é a mais sácia das deusas, porque escolheu ouvir um mortal em vez de se impor.")
       u.aguarde(2000)
       escreva("\n\nNas noites de festival, duas lanternas sobem pelo caminho da floresta.")
       escreva("\nUma prateada, divina, eterna.")
       escreva("\nOutra dourada, mortal, igualmente eterna.")
       u.aguarde(800)
+      continuar()
+      limpa()
+
       escreva("\n\nE quem vê de longe nunca sabe qual delas brilha mais forte.\n\n")
       u.aguarde(500)
       sabio()
       escreva("\n\n>> A Guardiã e o Sábio <<\n")
+      continuar()
+      limpa()
 
     } senao {
 
@@ -776,18 +794,24 @@ funcao epilogo(inteiro escolhaAnterior, inteiro pontuacao)
       escreva("\nPela primeira vez em mil anos, o feudo não pertence a nenhuma guardiã.")
       escreva("\nPertence a todos.")
       u.aguarde(1000)
+      continuar()
+      limpa()
+
       escreva("\nE isso, no final, é mais forte do que qualquer divindade.\n\n")
       u.aguarde(300)
       heroi()
       escreva("\n>> O Novo Equilíbrio de Kai <<\n")
+      continuar()
+      limpa()
 
     }
     limpa()
-    game_over()
     u.aguarde(800)
     escreva("\nObrigado por jogar A Nove Caudas de Kai.")
     escreva("\nO Feudo de Kai lembrará seu nome, Akira.\n")
-    escreva("Equipe CDS")
+    escreva("\nEquipe CDS\n")
+    u.aguarde(500)
+    game_over()
   }
 
     // --- FUNÇÃO REUTILIZÁVEL: VALIDAÇÃO DE ENTRADA ---
@@ -827,7 +851,7 @@ funcao epilogo(inteiro escolhaAnterior, inteiro pontuacao)
    u.aguarde(300)
    escreva("\n<============================================> ")
    leia(enter)
-  } 
+  }
 
   funcao capa(){
     escreva("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n")  
@@ -874,7 +898,7 @@ funcao epilogo(inteiro escolhaAnterior, inteiro pontuacao)
     u.aguarde(100)
     escreva("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#*****@@@@@@********%@@@@@@@@****@@****@@****@@%***@@@****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n")  
     u.aguarde(100)
-    escreva("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@..@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n")  
+    escreva("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@..@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n")  
     u.aguarde(100)
     escreva("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:..@@@...-@@@@..-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n")  
     u.aguarde(100)
@@ -986,23 +1010,23 @@ funcao epilogo(inteiro escolhaAnterior, inteiro pontuacao)
 
   funcao game_over(){
     escreva("   ▄██████▄     ▄████████   ▄▄▄▄███▄▄▄▄      ▄████████       ▄██████▄   ▄█    █▄     ▄████████    ▄████████\n")
-    u.aguarde(10)
+    u.aguarde(20)
     escreva("  ███    ███   ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███      ███    ███ ███    ███   ███    ███   ███    ███\n")
-    u.aguarde(10)
+    u.aguarde(20)
     escreva("  ███    █▀    ███    ███ ███   ███   ███   ███    █▀       ███    ███ ███    ███   ███    █▀    ███    ███\n")
-    u.aguarde(10)
+    u.aguarde(20)
     escreva(" ▄███          ███    ███ ███   ███   ███  ▄███▄▄▄          ███    ███ ███    ███  ▄███▄▄▄      ▄███▄▄▄▄██▀\n")
-    u.aguarde(10)
+    u.aguarde(20)
     escreva("▀▀███ ████▄  ▀███████████ ███   ███   ███ ▀▀███▀▀▀          ███    ███ ███    ███ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀  \n")
-    u.aguarde(10)
+    u.aguarde(20)
     escreva("  ███    ███   ███    ███ ███   ███   ███   ███    █▄       ███    ███ ███    ███   ███    █▄  ▀███████████\n")
-    u.aguarde(10)
+    u.aguarde(20)
     escreva("  ███    ███   ███    ███ ███   ███   ███   ███    ███      ███    ███ ███    ███   ███    ███   ███    ███\n")
-    u.aguarde(10)
+    u.aguarde(20)
     escreva("  ████████▀    ███    █▀   ▀█   ███   █▀    ██████████       ▀██████▀   ▀██████▀    ██████████   ███    ███\n")
-    u.aguarde(10)
+    u.aguarde(20)
     escreva("                                                                                                 ███    ███\n")
-    u.aguarde(10)
+    u.aguarde(20)
   }
 
   funcao feudo(){
