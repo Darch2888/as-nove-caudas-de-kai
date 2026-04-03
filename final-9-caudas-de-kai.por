@@ -547,7 +547,7 @@ funcao epilogo(inteiro escolhaAnterior, inteiro pontuacao)
         escreva("\nVocê está de joelhos, sua vitalidade quase extinta após purificar a Ganância.")
         u.aguarde(300)
         escreva("\nAs nove caudas flutuam ao seu redor, brilhando com uma pureza que dói aos olhos.")
-        u.guarde(900)
+        u.aguarde(900)
         continuar()
         limpa()
     } senao {
