@@ -809,7 +809,7 @@ funcao epilogo(inteiro escolhaAnterior, inteiro pontuacao)
     u.aguarde(800)
     escreva("\nObrigado por jogar A Nove Caudas de Kai.")
     escreva("\nO Feudo de Kai lembrará seu nome, Akira.\n")
-    escreva("\nEquipe CDS\n")
+    escreva("\nEquipe CDS\n\n8")
     u.aguarde(500)
     game_over()
   }
