@@ -980,7 +980,7 @@ funcao epilogo(inteiro escolhaAnterior, inteiro pontuacao)
   funcao passarTexto() {
    escreva("\n")
    escreva(" --------------------------------------------------") 
-   escreva("\n          [ Pressione ENTER para continuar ]") 
+   escreva("\n    [ Pressione ENTER para continuar lendo ]") 
    leia(enter)
    escreva("\n") 
   }
