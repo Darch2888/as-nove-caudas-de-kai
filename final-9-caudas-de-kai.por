@@ -1,6 +1,6 @@
 programa {
     inclua biblioteca Util --> u
-    inclua biblioteca Tipos --> tp
+      inclua biblioteca Tipos --> tp
     
     // Variável global para pausas de leitura
     cadeia enter
