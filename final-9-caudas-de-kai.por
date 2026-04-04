@@ -136,6 +136,8 @@ programa {
     limpa()  
    
     escreva("\nA partir daí, o que você faz?\n\n")
+   
+    escreva("\nA partir daí, o que você faz?\n\n")
     e1()
        escreva("\n\n1) Seguir em silêncio\n")
        escreva("2) Chamar por ela\n")
@@ -526,6 +528,7 @@ programa {
    escreva("\nO Caos ri, um som que estraçalha a lógica, enquanto a Ganância devora a própria luz ao redor.")
    passarTexto()
    u.aguarde(200)
+   
    escreva("\n\n 'Akira...' - a voz da Ganância ecoa - 'Tanto esforço para juntar os pedaços de uma carcaça velha?'\n")
    u.aguarde(200)
    escreva("\n 'Junte-se a nós' - provoca o Caos, distorcendo o espaço - 'Por que salvar um feudo que apodrece, se você pode reinar em um novo mundo?...'")
