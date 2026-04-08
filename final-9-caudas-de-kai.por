@@ -9,7 +9,8 @@ programa {
     inteiro opcaoAto1
     inteiro opcaoAto2
     inteiro opcaoAto3
-    inteiro opcaoAto4
+    inteiro opcaoAto4_1  // Agora são duas variáveis separadas
+    inteiro opcaoAto4_2
     inteiro opcaoAto5
     inteiro pontuacao
 
@@ -51,11 +52,13 @@ programa {
     
     opcaoAto3 = ato3()
 
-    // Ato 4: depende da escolha do ato 3
+    // Ato 4: Executa AMBOS os caminhos, a ordem depende da escolha do ato 3
     se (opcaoAto3 == 1) {
-      opcaoAto4 = ato4_1()
+      opcaoAto4_1 = ato4_1()  // Floresta primeiro
+      opcaoAto4_2 = ato4_2()  // Depois Montanha
     } senao {
-      opcaoAto4 = ato4_2()
+      opcaoAto4_2 = ato4_2()  // Montanha primeiro
+      opcaoAto4_1 = ato4_1()  // Depois Floresta
     }
 
     ato4_3()
@@ -66,14 +69,16 @@ programa {
     // Ato 1: Opção 1 (Silêncio) = +1
     // Ato 2: Opção 2 (Observar) = +1
     // Ato 3: Opção 1 (Floresta) = +1
-    // Ato 4: Opção 2 (Sabedoria/Fendas) = +1
+    // Ato 4 Floresta: Opção 2 (Sabedoria) = +1
+    // Ato 4 Montanha: Opção 2 (Fendas) = +1
     // Ato 5: Opção 1 (Serenidade) = +1
     
     pontuacao = 0
     se (opcaoAto1 == 1) { pontuacao = pontuacao + 1 }
     se (opcaoAto2 == 2) { pontuacao = pontuacao + 1 }
     se (opcaoAto3 == 1) { pontuacao = pontuacao + 1 }
-    se (opcaoAto4 == 2) { pontuacao = pontuacao + 1 }
+    se (opcaoAto4_1 == 2) { pontuacao = pontuacao + 1 }  // Floresta
+    se (opcaoAto4_2 == 2) { pontuacao = pontuacao + 1 }  // Montanha
     se (opcaoAto5 == 1) { pontuacao = pontuacao + 1 }
 
     epilogo(opcaoAto5, pontuacao)
@@ -365,7 +370,10 @@ programa {
      u.aguarde(500)
      escreva("\n\nVocê cai em uma armadilha de raízes antigas! A Astúcia ri ao longe.")
      u.aguarde(500)
-     escreva("\n\nFoi gasto muito tempo para se libertar e perde o rastro das caudas, forçando-o a recuar e optar pelo caminho da Montanha.\n")
+     escreva("\n\nFoi gasto muito tempo para se libertar e perde o rastro das caudas, forçando-o a recuar.\n") //e optar pelo caminho da Montanha???
+     u.aguarde(500)
+     escreva("\n\n Depois de andar por alguns metros, você dá de cara com as caudas da Devoção e Astúcia.")
+     u.aguarde(500)
     } senao {
      limpa()
      escreva("\n\nA Sabedoria o orienta a ignorar os sons e focar no brilho das flores.")
@@ -374,6 +382,8 @@ programa {
      u.aguarde(500)
      escreva("\n\nO rastro leva você diretamente ao esconderijo da Devoção e Astúcia!\n")
     }
+    escreva("\n\n Após conversar com a Devoção, vocês dois conseguem argumentar com a Astúcia e fazer com que todas sigam viagem junto com você.")
+    u.aguarde(500)
 
     u.aguarde(300)
     continuar()
@@ -425,9 +435,12 @@ programa {
      escreva("\n\n'O desequilíbrio no feudo aumentou' - diz a Sabedoria - 'Algumas consequências são irreversíveis...'\n")
     }
 
-    u.aguarde(1000)
+    u.aguarde(600)
     continuar()
     limpa()
+
+    u.aguarde(600)
+    escreva("\n\nVocê convence as caudas a colaborar e continua sua jornada para salvar o feudo de Kai \n")
 
     retorne opcao
   }
